@@ -1,17 +1,17 @@
 package com.thoughtworks.tw101.exercises.exercise6;
 
 /**
- * Created by Ronnie on 8/16/16.
+ * Created by Ronnie on 8/18/16.
  */
-public class Orc extends Monster {
+public class Troll extends Monster{
 
     private String name;
     private int hitpoints;
 
+    public Troll(){
+        this.name = "Troll";
+        this.hitpoints = 40;
 
-    public Orc(){
-        this.name = "Orc";
-        this.hitpoints = 20;
     }
 
     public void reportStatus(){
@@ -19,6 +19,9 @@ public class Orc extends Monster {
         System.out.println("HP = " + this.hitpoints);
     }
 
-
+    @Override
+    public void takeDamage(int damage){
+        this.hitpoints = this.hitpoints - damage/2;
+    }
 
 }
