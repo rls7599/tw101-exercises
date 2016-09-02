@@ -12,44 +12,27 @@ public class Main {
 
     public static void main(String[] args) {
 
+      //0-99
 
-        Random r = new Random();
-
-        //0-99
-        int randomNumb = r.nextInt(100)+1;
         Scanner inputReader = new Scanner(System.in);
-        ArrayList<Integer> listOfGuesses = new ArrayList();
-        while(true){
+        GuessCheck guessChecker = new GuessCheck();
+        while(!guessChecker.isGameCompleted()){
 
 
             System.out.print("Pick a number between 1 and 100: ");
-            try {
-                int userGuess = Integer.parseInt(inputReader.next());
-                listOfGuesses.add(userGuess);
+            int userGuess = 0;
 
-                if (userGuess == randomNumb) {
-                    System.out.println("You are correct! Exiting program.\n");
-                    System.out.println("Below is a list of your previous guesses\n");
-                    for(Integer i : listOfGuesses){
-                        System.out.println(i);
-                    }
-                    break;
-                }
-                //less than guess
-                else if (userGuess < randomNumb) {
-                    System.out.println("Try again! Your guess was too low.");
-                    System.out.println();
-                }
-                //greater than guess
-                else {
-                    System.out.println("Try again! Your guess was too high");
-                    System.out.println();
-                }
+            try {
+                userGuess = Integer.parseInt(inputReader.next());
             }
+
             catch (NumberFormatException e){
                 System.out.println("Please enter in a number");
                 System.out.println();
             }
+            guessChecker.answerCheck(userGuess);
+            
+
 
         }
 
