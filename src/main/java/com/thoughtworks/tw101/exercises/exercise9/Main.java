@@ -17,6 +17,7 @@ public class Main {
         root.add("Sue-Ellen");
         root.add("Sara");
         root.add("Casey");
+        root.add("Ronnie");
 
         List<String> names = root.names();
 
@@ -24,4 +25,5 @@ public class Main {
             System.out.println(name);
         }
     }
+
 }
